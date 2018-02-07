@@ -1,3 +1,21 @@
+# Databases
+*.sqlite3
+
+# PyCharm
+.idea
+
+# Eclipse
+.project
+.metadata/
+.classpath
+.settings
+bin/
+.idea
+.recommenders/
+
+# PyDev
+.pydevproject
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
