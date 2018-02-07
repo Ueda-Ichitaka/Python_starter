@@ -1,6 +1,6 @@
 # Sample Scripts
 
-Here are some simple scripts running on all systems with python. To execute a script type [sudo] python /path/to/script.py in your shell
+Here are some simple scripts running on all systems with python. To execute a script type `python /path/to/script.py` in your shell
 
 ## kl.py
 Simple semi-functioning Keylogger. Serves as example for file io and hardware hooks.
