@@ -1,0 +1,15 @@
+{% extends "hwform/base.html" %}
+
+{% block content %}
+
+
+<form action="{% url 'hwform:ticket_upload' %}" method="post">                                                             
+  {% csrf_token %}
+  <label for="ticket_name">Name</label>
+  <input type="text" name="ticket_name" id="ticket_name" />
+  <label for="ticket_descr">Text</label>
+  <input type="text" name="ticket_descr" id="ticket_descr" />
+  <input type="submit" />
+</form>
+
+{% endblock %}	

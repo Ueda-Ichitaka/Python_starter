@@ -1,0 +1,22 @@
+{% extends "hwform/base.html" %}
+
+{% block content %}
+
+<h1>Recent Tickets</h1>
+					<p>Submitted tickets are listed here</p>
+					<p>
+					<center> 
+						{% if ticket_list %}
+		   					<ul>
+		    				{% for ticket in ticket_list %}
+		        				<li><a href="ticket/{{ ticket.id }}/detail.html">{{ ticket.ticket_name }}</a></li>
+		    				{% endfor %}
+		    				</ul>
+						{% else %}
+		    				<p>No tickets are available.</p>
+						{% endif %}
+					</center> 
+					</p>
+					
+					
+{% endblock %}					

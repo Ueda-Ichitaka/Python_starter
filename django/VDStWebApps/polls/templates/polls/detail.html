@@ -1,0 +1,45 @@
+{% extends "polls/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>{{ question.question_text }}</title>
+{% endblock %}
+
+{% block leftnav %}
+<ul>
+	<li><a href="{% url 'polls:index' %}">Index</a></li>
+	<li><a href="{% url 'polls:results_list' %}">Results</a></li>
+	{% if questions %} 
+		{% for question in questions %}
+			<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+		{% endfor %}
+</ul>
+	{% else %}
+		<p>No polls are available.</p>
+	{% endif %}	
+{% endblock %}
+
+{% block content %}
+<h1>{{ question.question_text }}</h1>
+<p>{{ question.question_descr }}</p>
+<p>
+	<center> 				
+		{% if error_message %}
+			<p><strong>{{ error_message }}</strong></p>
+		{% endif %}
+						
+		<form action="{% url 'polls:vote' question.id %}" method="post">
+			{% csrf_token %}
+			{% for choice in question.choice_set.all %}
+			    <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+			    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+			{% endfor %}
+			<input type="submit" value="Vote" />
+		</form>
+	</center> 
+</p>
+<p></p>
+<p></p>		
+				
+{% endblock %}					
+

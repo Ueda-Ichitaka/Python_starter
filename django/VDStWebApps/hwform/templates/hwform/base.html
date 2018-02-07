@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'hwform/style.css' %}" />
+{% endblock %}
+
+{% block head %}
+<title>HW Form Index</title>
+{% endblock %}
+
+{% block top %}
+<!-- <img src="{% static 'polls/images/banner.jpg' %}" /> -->
+{% endblock %}
+
+{% block leftnav %}
+<li><a href="{% url 'hwform:index' %}">Index</a></li>
+<li><a href="{% url 'hwform:ticket_form_upload' %}">Ticket Submit</a></li>
+<li><a href="{% url 'hwform:ticket_list' %}">Ticket Table</a></li>
+{% endblock %}
+
+{% block content %}
+<h1>test</h1>
+<p>lorem ipsum dolor sit amet</p>									
+{% endblock %}					
+
+{% block rightside %}
+<h2></h2>
+<p>
+	// TODO
+</p>
+{% endblock %}

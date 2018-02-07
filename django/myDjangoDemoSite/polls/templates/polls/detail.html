@@ -1,0 +1,86 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<head>
+	<title>Index of Polls</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="main">
+		<div id="top">
+			<img src="{% static 'polls/images/banner.jpg' %}" />
+		</div>
+		
+		<div id="topnav">
+			<ul>
+				<li><a href="http://www.heubergeronline.de/inventory">VDSt Bib Index</a></li>
+				<li><a>nav</a></li>
+				<li><a>nav</a></li>
+				<li><a>nav</a></li>
+			</ul>
+		</div>
+		
+		<div id="content-wrapper">
+	
+			<div id="leftnav">
+				<ul>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					
+				</ul>		
+			</div >
+			
+			<div id="content-wrapper2">
+	
+				<div id="content">
+				
+					<h1>{{ question.question_text }}</h1>
+					<p>{{ question.question_descr }}</p>
+					<p>
+					<center> 
+						
+						{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+						
+						<form action="{% url 'polls:vote' question.id %}" method="post">
+						{% csrf_token %}
+						{% for choice in question.choice_set.all %}
+						    <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+						    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+						{% endfor %}
+						<input type="submit" value="Vote" />
+						</form>
+					</center> 
+					</p>
+				</div>
+				
+				<div id="rightside">
+					<h2></h2>
+					<p>
+						// TODO
+					</p>
+				</div>
+			</div>	
+		</div>
+	
+	</div>
+	
+	<div id="footer">
+	
+		<p>Last Update: 11.07.2016</p>
+	
+	</div>
+	
+</div>
+
+</body>
+
+
+
+
+

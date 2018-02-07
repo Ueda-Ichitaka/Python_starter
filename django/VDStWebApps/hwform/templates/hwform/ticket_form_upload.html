@@ -1,0 +1,17 @@
+{% extends "hwform/base.html" %}
+
+{% block head %}
+<title>Submit Ticket</title>
+{% endblock %}
+
+{% block content %}
+					<h1>Submit a ticket</h1>
+					<p>Write your stuff here. It will be saved.</p>
+					<p>
+						<form action='form_upload.html' method='post'>
+							{% csrf_token %}
+							{{ form.as_p }}
+							<input type='submit' value='Submit' />
+						</form>
+					</p>
+{% endblock %}	

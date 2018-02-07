@@ -1,0 +1,65 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'base/style.css' %}" />
+{% block css %}{% endblock %}
+
+<head>
+{% block head %}{% endblock %}
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="main">
+		<div id="top">
+		{% block top %}{% endblock %}
+		</div>
+		
+		<div id="topnav">
+			<ul>
+				<li><a href="{% url 'base:index' %}">Index</a></li>
+				<li><a href="{% url 'hwform:ticket_form_upload' %}">HW Ticket Form</a></li>
+				<li><a href="{% url 'polls:index' %}">Polls</a></li>
+				<li><a href="https://heubergeronline.de/inventory">Bib List</a></li>
+				<li><a>nav</a></li>
+				<li><a>nav</a></li>
+			</ul>
+		</div>
+		
+		<div id="content-wrapper">
+	
+			<div id="leftnav">
+				
+				<ul>
+				{% block leftnav %}
+					<li><a href="{% url 'base:index' %}">Index</a></li>
+				{% endblock %}
+				</ul>
+				
+				
+			</div >
+			
+			<div id="content-wrapper2">
+	
+				<div id="content">
+				{% block content %}{% endblock %}
+					
+				</div>
+				
+				<div id="rightside">					
+					{% block rightside %}{% endblock %}
+				</div>
+			</div>	
+		</div>
+	
+	</div>
+	
+	<div id="footer">
+	
+		<p>Last Update: 25.07.2016</p>
+	
+	</div>
+	
+</div>
+
+</body>

@@ -1,0 +1,89 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<head>
+	<title>Index of Polls</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="main">
+		<div id="top">
+			<img src="{% static 'polls/images/banner.jpg' %}" />
+		</div>
+		
+		<div id="topnav">
+			<ul>
+				<li><a href="http://www.heubergeronline.de/inventory">VDSt Bib Index</a></li>
+				<li><a>nav</a></li>
+				<li><a>nav</a></li>
+				<li><a>nav</a></li>
+			</ul>
+		</div>
+		
+		<div id="content-wrapper">
+	
+			<div id="leftnav">
+				<ul>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					<li><a href="index.html">navigation</a></li>
+					
+				</ul>		
+			</div >
+			
+			<div id="content-wrapper2">
+	
+				<div id="content">
+				
+					<h1>{{ question.question_text }}</h1>
+					<ul>
+					{% for choice in question.choice_set.all %}
+    					<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+					{% endfor %}
+					</ul>
+
+					<p><a href="{% url 'polls:detail' question.id %}">Vote again?</a></p>
+				
+					<p></p>
+					<p></p>
+					<div></div>
+					<p></p>
+					<p></p>
+					
+				</div>
+				
+				<div id="rightside">
+					<h2></h2>
+					<p>
+						// TODO
+					</p>
+				</div>
+			</div>	
+		</div>
+	
+	</div>
+	
+	<div id="footer">
+	
+		<p>Last Update: 11.07.2016</p>
+	
+	</div>
+	
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+

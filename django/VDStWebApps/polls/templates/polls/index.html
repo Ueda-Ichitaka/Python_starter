@@ -1,0 +1,25 @@
+{% extends "polls/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Polls Index</title>
+{% endblock %}
+
+{% block content %}
+<h1>test</h1>
+<p>lorem ipsum dolor sit amet</p>
+<p>
+	<center> 
+		{% if latest_question_list %}
+			<ul>
+		    	{% for question in latest_question_list %}
+		    		<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+		    	{% endfor %}
+		    </ul>
+		{% else %}
+			<p>No polls are available.</p>
+		{% endif %}
+	</center> 
+</p>									
+{% endblock %}					
+
